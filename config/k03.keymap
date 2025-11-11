@@ -14,62 +14,119 @@
         };
     };
 
+    combos {
+        compatible = "zmk,combos";
+
+        Delete {
+            bindings = <&kp DELETE>;
+            key-positions = <10 11>;
+        };
+
+        Grave_Accent_and_Tilde {
+            bindings = <&kp GRAVE>;
+            key-positions = <0 1>;
+        };
+
+        Left_Parenthesis {
+            bindings = <&kp LPAR>;
+            key-positions = <16 17>;
+        };
+
+        Right_Parenthesis {
+            bindings = <&kp RPAR>;
+            key-positions = <18 19>;
+        };
+
+        Left_Bracket {
+            bindings = <&kp LEFT_BRACKET>;
+            key-positions = <28 29>;
+        };
+
+        Right_Bracket {
+            bindings = <&kp RIGHT_BRACKET>;
+            key-positions = <30 31>;
+        };
+
+        Left_Brace {
+            bindings = <&kp LEFT_BRACE>;
+            key-positions = <40 41>;
+        };
+
+        Right_Brace {
+            bindings = <&kp RIGHT_BRACE>;
+            key-positions = <44 45>;
+        };
+
+        Minus {
+            bindings = <&kp MINUS>;
+            key-positions = <15 16>;
+        };
+
+        Plus {
+            bindings = <&kp PLUS>;
+            key-positions = <19 20>;
+        };
+
+        Underscore {
+            bindings = <&kp UNDERSCORE>;
+            key-positions = <15 14>;
+        };
+
+        Equal {
+            bindings = <&kp EQUAL>;
+            key-positions = <20 21>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
-        base {
+        main {
             bindings = <
-&kp GRAVE  &kp N1  &kp N2    &kp N3    &kp N4     &kp N5                          &kp N6  &kp N7     &kp N8     &kp N9    &kp N0    &kp BSPC
-&kp ESC    &kp Q   &kp W     &kp E     &kp R      &kp T                           &kp Y   &kp U      &kp I      &kp O     &kp P     &kp BSLH
-&kp TAB    &kp A   &kp S     &kp D     &kp F      &kp G                           &kp H   &kp J      &kp K      &kp L     &kp SEMI  &kp SQT
+&kp ESC    &kp N1  &kp N2    &kp N3    &kp N4     &kp N5                          &kp N6  &kp N7     &kp N8     &kp N9    &kp N0    &kp BSPC
+&kp TAB    &kp Q   &kp W     &kp E     &kp R      &kp T                           &kp Y   &kp U      &kp I      &kp O     &kp P     &kp BSLH
+&kp CAPS   &kp A   &kp S     &kp D     &kp F      &kp G                           &kp H   &kp J      &kp K      &kp L     &kp SEMI  &kp SQT
 &kp LSHFT  &kp Z   &kp X     &kp C     &kp V      &kp B   &kp LBKT     &kp RBKT   &kp N   &kp M      &kp COMMA  &kp DOT   &kp FSLH  &kp RSHFT
                    &kp LGUI  &kp LALT  &kp LCTRL  &mo 1   &kp SPACE    &kp ENTER  &mo 2   &kp RCTRL  &kp RALT   &kp RGUI
             >;
 
-            display-name = "Base";
-            sensor-bindings =
-                <&enc_vol>,
-                <&enc_vol>,
-                <&enc_vol>,
-                <&enc_vol>,
-                <&enc_vol>,
-                <&enc_vol>;
+            display-name = "Main";
         };
 
-        nav {
+        red {
             bindings = <
-&kp F1  &kp F2  &kp F3        &kp F4    &kp F5         &kp F6                   &kp F7           &kp F8  &kp F9  &kp F10  &kp F11  &kp F12
-&none   &none   &kp HOME      &kp UP    &kp END        &kp INS                  &kp PG_UP        &kp N7  &kp N8  &kp N9   &none    &none
-&none   &none   &kp LEFT      &kp DOWN  &kp RIGHT      &kp RET                  &kp PG_DN        &kp N4  &kp N5  &kp N6   &none    &none
-&none   &none   &kp LC(LEFT)  &kp CAPS  &kp LC(RIGHT)  &kp DEL  &none    &none  &kp PRINTSCREEN  &kp N1  &kp N2  &kp N3   &none    &none
-                &none         &none     &none          &none    &none    &none  &mo 3            &none   &kp N0  &none
+&kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6                  &kp F7  &kp F8    &kp F9          &kp F10  &kp F11          &kp F12
+&none   &none   &none   &none   &none   &none                   &none   &none     &none           &none    &none            &none
+&none   &none   &none   &none   &none   &none                   &none   &kp LEFT  &kp DOWN_ARROW  &kp UP   &kp RIGHT_ARROW  &none
+&none   &none   &none   &none   &none   &none   &none    &none  &none   &none     &none           &none    &none            &none
+                &none   &none   &none   &none   &none    &none  &mo 3   &none     &none           &none
             >;
 
-            display-name = "Navigation";
+            display-name = "Red";
         };
 
-        sym {
+        blue {
             bindings = <
-&trans  &trans    &kp AT    &kp DLLR   &kp HASH  &trans                       &trans     &trans    &kp CARET  &trans    &trans    &trans
-&trans  &trans    &kp LT    &kp EQUAL  &kp GT    &kp GRAVE                    &trans     &kp LBKT  &kp UNDER  &kp RBKT  &trans    &trans
-&trans  &kp BSLH  &kp LPAR  &kp MINUS  &kp RPAR  &kp PLUS                     &kp PRCNT  &kp LBRC  &kp SEMI   &kp RBRC  &kp EXCL  &trans
-&trans  &trans    &kp STAR  &kp COLON  &kp FSLH  &trans     &trans    &trans  &trans     &kp PIPE  &kp TILDE  &kp AMPS  &trans    &trans
-                  &trans    &trans     &trans    &mo 3      &trans    &trans  &trans     &trans    &trans     &trans
+&none  &none  &none              &none       &none            &none                  &none  &none  &none  &none  &none  &none
+&none  &none  &none              &none       &none            &none                  &none  &none  &none  &none  &none  &none
+&none  &none  &kp C_VOLUME_DOWN  &kp K_MUTE  &kp C_VOLUME_UP  &none                  &none  &none  &none  &none  &none  &none
+&none  &none  &none              &none       &none            &none  &none    &none  &none  &none  &none  &none  &none  &none
+              &none              &none       &none            &mo 3  &none    &none  &none  &none  &none  &none
             >;
 
-            display-name = "Symbols";
+            display-name = "Blue";
         };
 
-        adj {
+        misc {
             bindings = <
-&bootloader  &trans  &trans  &trans  &trans  &trans                    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2      &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_CLR_ALL
-&trans       &trans  &trans  &trans  &trans  &trans                    &trans        &trans        &trans            &trans        &trans        &studio_unlock
-&trans       &trans  &trans  &trans  &trans  &trans                    &out OUT_BLE  &kp C_VOL_DN  &kp K_MUTE        &kp C_VOL_UP  &trans        &trans
-&trans       &trans  &trans  &trans  &trans  &trans  &trans    &trans  &out OUT_USB  &kp K_PREV    &kp K_PLAY_PAUSE  &kp K_NEXT    &trans        &trans
-                     &trans  &trans  &trans  &trans  &trans    &trans  &trans        &trans        &trans            &trans
+&bootloader  &none  &none  &none  &none  &none                  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_CLR_ALL
+&none        &none  &none  &none  &none  &none                  &none         &none         &none         &none         &none         &studio_unlock
+&none        &none  &none  &none  &none  &none                  &out OUT_BLE  &none         &none         &none         &none         &none
+&none        &none  &none  &none  &none  &none  &none    &none  &out OUT_USB  &none         &none         &none         &none         &none
+                    &none  &none  &none  &none  &none    &none  &none         &none         &none         &none
             >;
 
-            display-name = "Adjust";
+            display-name = "Misc";
         };
     };
 };
